@@ -36,7 +36,7 @@ pipeline {
                 
                 str = env.appnames.split(',')
                 for (String values :str)
-                sh "echo $values > test10/$values.txt" 
+                sh "echo $values > test10/$values" 
                 
                 str = env.appnames.split(',')
                 for (String values :str)
