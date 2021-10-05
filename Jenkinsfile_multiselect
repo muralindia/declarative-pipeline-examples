@@ -36,6 +36,11 @@ pipeline {
                 str = env.appnames.split(',')
                 for (String values :str)
                 sh "echo $values > apps.txt" 
+                
+                sh '''
+                set +x
+                cat apps.txt
+                '''
 
                 strg = env.appnames.split(',')
                 for (String values :strg)
