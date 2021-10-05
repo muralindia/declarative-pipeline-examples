@@ -32,14 +32,16 @@ pipeline {
                 for (String values :strg)
                 funapp("$values")
                 
-                sh '''
-                set +x
-                str2 = env.appnames.split(',')
+                 str2 = env.appnames.split(',')
                 for (String values :str2)
                 echo  "app-name --env $values" 
                
                 
-             echo hello
+                sh '''
+                set +x
+               
+                
+                echo hello
                 '''
             
                 applyrstuff('rstuffs', 'antk')
