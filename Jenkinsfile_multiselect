@@ -21,16 +21,17 @@ pipeline {
      stage('build-1by1') {
          steps {
             script {
-                applyrstuff('rstuffs')
+                applyrstuff('rstuffs', 'antk')
                 }
                }
               }
     }
  }
               
-       def applyrstuff(String a){
+       def applyrstuff(String a, String b){
                 echo "hello rstuff"
                 echo a
+                echo b
                 }
                 
     
