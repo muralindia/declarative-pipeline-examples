@@ -24,9 +24,9 @@ pipeline {
                 
                 sh '''
                 set +x
-                mkdir appnames
-                echo "${params.appnames}" > appnames/apps.txt
-                awk -F ',' '{print NF;exit}' appnames/apps.txt
+               
+                echo "${params.appnames}" > apps.txt
+                awk -F ',' '{print NF;exit}' apps.txt
                 
                 n=`cat appnames/apps.txt`
                 echo $n
