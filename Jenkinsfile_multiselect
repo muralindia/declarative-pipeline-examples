@@ -29,6 +29,7 @@ pipeline {
                 set +x
                 
                 echo "dapper is nice" > input.txt
+                rm -rf test10
                 mkdir test10
                 
                 echo hello
