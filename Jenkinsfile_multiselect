@@ -14,7 +14,7 @@ pipeline {
                 echo "Choice: ${params.CHOICE}"
             }
         }
-    }
+    
     
  // new lines added
  
@@ -25,6 +25,7 @@ pipeline {
                 }
                }
               }
+    }
  }
               
        def applyrstuff(String a){
