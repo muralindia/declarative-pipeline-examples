@@ -29,17 +29,22 @@ pipeline {
                 set +x
                 
                 echo "dapper is nice" > input.txt
+                mkdir test10
                 
                 echo hello
                 '''
                 
                 str = env.appnames.split(',')
                 for (String values :str)
-                sh "echo $values > apps.txt" 
+                sh "echo $values > test10/$values.txt" 
+                
+                str = env.appnames.split(',')
+                for (String values :str)
+                sh "cat test10/$values.txt" 
                 
                 sh '''
                 set +x
-                cat apps.txt
+                rm -rf test10
                 '''
 
                 strg = env.appnames.split(',')
