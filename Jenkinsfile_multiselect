@@ -21,7 +21,7 @@ pipeline {
      stage('build-1by1') {
          steps {
             script {
-                echo "${params.appnames}" > app.txt
+                echo "${params.appnames}" | awk -F ',' '{print $1}'
                 sh '''
                 set +x
                
