@@ -53,7 +53,9 @@ pipeline {
                 }
                 
       def funapp(String a){
-           sed -i 's/dapper/a/g' input.txt
+           ap=a
+           
+           echo $ap
            
             cat input.txt
         
