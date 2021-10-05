@@ -21,6 +21,16 @@ pipeline {
      stage('build-1by1') {
          steps {
             script {
+                
+                sh '''
+                set +x
+                mkdir appnames
+                echo "Extendedchoice: ${params.appnames}" > appnames/apps.txt
+                awk -F ',' '{print NF;exit}' appnames/apps.txt
+                
+                n=`cat appnames/apps.txt`
+                '''
+            
                 applyrstuff('rstuffs', 'antk')
                 }
                }
