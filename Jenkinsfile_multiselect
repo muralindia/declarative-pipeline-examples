@@ -52,6 +52,6 @@ pipeline {
                 }
                 
       def funapp(String a){
-            echo "appgr8 a"
+            echo appgr8 a
             }
 
