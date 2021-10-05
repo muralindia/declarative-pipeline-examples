@@ -7,7 +7,7 @@ pipeline {
 
 }
     stages {
-        stage('Example') {
+        stage('Example-values') {
             steps {
                 
                 echo "Extendedchoice: ${params.appnames}"
@@ -15,4 +15,21 @@ pipeline {
             }
         }
     }
-}
+    
+ // new lines added
+ 
+     stage('build-1by1') {
+         steps {
+            script {
+                applyrstuff('rstuffs')
+                }
+               }
+              }
+ }
+              
+       def applyrstuff(String a){
+                echo "hello rstuff"
+                }
+                
+    
+
