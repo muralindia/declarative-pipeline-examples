@@ -21,15 +21,15 @@ pipeline {
      stage('build-1by1') {
          steps {
             script {
-                
+                echo "${params.appnames}" 
                 sh '''
                 set +x
                
-                echo "${params.appnames}" 
-                awk -F ',' '{print NF;exit}' apps.txt
                 
-                n=`cat appnames/apps.txt`
-                echo $n
+           //     awk -F ',' '{print NF;exit}' apps.txt
+                
+           //     n=`cat apps.txt`
+             //   echo $n
                 '''
             
                 applyrstuff('rstuffs', 'antk')
