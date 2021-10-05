@@ -67,7 +67,7 @@ pipeline {
                 }
                 
       def funapp(String a){
-          sh "echo a"
+            echo a
            
             }
 
