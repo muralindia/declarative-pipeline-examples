@@ -35,10 +35,7 @@ pipeline {
                 for (String values :str)
                  sh "sed -i 's/dapper/$values/g' input.txt"
                  echo  "app-name  $values" 
-                 
-                 cat input.txt
-                
-                
+
                 strg = env.appnames.split(',')
                 for (String values :strg)
                 funapp("$values")
