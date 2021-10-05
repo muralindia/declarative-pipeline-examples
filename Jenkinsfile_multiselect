@@ -26,10 +26,7 @@ pipeline {
                 set +x
                
                 
-           //     awk -F ',' '{print NF;exit}' apps.txt
-                
-           //     n=`cat apps.txt`
-             //   echo $n
+             echo hello
                 '''
             
                 applyrstuff('rstuffs', 'antk')
