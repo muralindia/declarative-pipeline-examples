@@ -35,8 +35,8 @@ pipeline {
                 
                 str = env.appnames.split(',')
                 strs = env.appsht.split(',')
-                for (String values :str, String valuess : strs)
-                 echo  "app-name  $values $valuess" 
+                for (String values :str)
+                 echo  "app-name  $values" 
 
                 strg = env.appnames.split(',')
                 for (String values :strg)
