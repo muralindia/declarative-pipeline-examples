@@ -34,7 +34,8 @@ pipeline {
                 
                  str2 = env.appnames.split(',')
                 for (String values :str2)
-                echo  "app-name --env $values" 
+                a="--env $values"
+                echo $a
                
                 
                 sh '''
