@@ -33,7 +33,7 @@ pipeline {
                 
                 str = env.appnames.split(',')
                 for (String values :str)
-                 sed -i 's/dapper/$values/g' input.txt
+                 sed -i "s/dapper/$values/g" input.txt
                  echo  "app-name  $values" 
                  
                  cat input.txt
