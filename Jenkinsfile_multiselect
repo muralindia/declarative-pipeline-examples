@@ -8,7 +8,10 @@ pipeline {
         booleanParam(name: 'Boolean', defaultValue: true, description: 'Boolean value')
 
         choice(name: 'CHOICE', choices: ['A', 'B', 'C'], description: ‘Choose one')
-
+        
+ 
+  extendedChoice(description: 'desc appnames', multiSelectDelimiter: ',', name: 'appnames', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_CHECKBOX', value: 'app1,app2,app3,app4,app5,app6,app7,app8,app9,app10', visibleItemCount: 5)
+        
         password(name: 'PASSWORD', defaultValue: 'Key', description: 'Enter a password')
 
         file(name: "FILE", description: "file to upload")
@@ -25,6 +28,8 @@ pipeline {
                 echo "Choice: ${params.CHOICE}"
 
                 echo "Password: ${params.PASSWORD}"
+                
+                echo "Extendedchoice: ${params.appnames}"
             }
         }
     }
