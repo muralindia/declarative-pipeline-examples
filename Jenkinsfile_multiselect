@@ -41,7 +41,7 @@ pipeline {
                 
                 str = env.appnames.split(',')
                 for (String values :str)
-                sh "cat test10/$values.txt" 
+                sh "cat test10/$values" 
                 
                 sh '''
                 set +x
