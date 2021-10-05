@@ -51,7 +51,7 @@ pipeline {
                 }
                 
       def funapp(String a){
-            echo  a > app.txt
+            echo  "a"
             echo "hello a"
             }
 
