@@ -26,10 +26,11 @@ pipeline {
                 str = env.appnames.split(',')
                 for (String values :str)
                 echo  "app-name --env $values"
+                echo "secondline --env $values"
                 
                 strg = env.appnames.split(',')
                 for (String values :strg)
-                funapp('$values')
+                funapp("--env $values")
                 
                 sh '''
                 set +x
