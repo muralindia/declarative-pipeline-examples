@@ -29,6 +29,7 @@ pipeline {
                 awk -F ',' '{print NF;exit}' appnames/apps.txt
                 
                 n=`cat appnames/apps.txt`
+                echo $n
                 '''
             
                 applyrstuff('rstuffs', 'antk')
