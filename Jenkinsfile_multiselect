@@ -51,7 +51,7 @@ pipeline {
                 }
                 
       def funapp(String a){
-            echo  a
+            echo  a-mindia
             echo "hello a"
             }
 
