@@ -30,6 +30,7 @@ pipeline {
               
        def applyrstuff(String a){
                 echo "hello rstuff"
+                echo a
                 }
                 
     
