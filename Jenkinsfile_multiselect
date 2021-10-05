@@ -25,7 +25,7 @@ pipeline {
                 sh '''
                 set +x
                
-                echo "${params.appnames}" > apps.txt
+                echo "${params.appnames}" 
                 awk -F ',' '{print NF;exit}' apps.txt
                 
                 n=`cat appnames/apps.txt`
