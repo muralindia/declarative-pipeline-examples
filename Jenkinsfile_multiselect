@@ -35,6 +35,8 @@ pipeline {
                 sh '''
                 set +x
                 
+                echo "dapper is nice" > input.txt
+                
                 echo hello
                 '''
                 applyrstuff('rstuffs', 'antk')
@@ -51,6 +53,10 @@ pipeline {
                 }
                 
       def funapp(String a){
+           sed -i s/dapper/a/g input.txt
+           
+            cat input.txt
+        
             echo  a
             echo "hello a"
             }
