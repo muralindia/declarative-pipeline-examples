@@ -23,15 +23,6 @@ pipeline {
             script {
                 echo "${params.appnames}" 
                 
-                str = env.appnames.split(',')
-                for (String values :str)
-                echo  "app-name  $values" 
-                
-                
-                strg = env.appnames.split(',')
-                for (String values :strg)
-                funapp("$values")
-                      
                 sh '''
                 set +x
                 
@@ -39,6 +30,20 @@ pipeline {
                 
                 echo hello
                 '''
+                
+                str = env.appnames.split(',')
+                for (String values :str)
+                 sed -i 's/dapper/$values/g' input.txt
+                 echo  "app-name  $values" 
+                 
+                 cat input.txt
+                
+                
+                strg = env.appnames.split(',')
+                for (String values :strg)
+                funapp("$values")
+                      
+                
                 applyrstuff('rstuffs', 'antk')
                 }
                }
@@ -53,13 +58,7 @@ pipeline {
                 }
                 
       def funapp(String a){
-           ap=a
+          echo a
            
-           echo $ap
-           
-            cat input.txt
-        
-            echo  a
-            echo "hello a"
             }
 
