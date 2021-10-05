@@ -21,7 +21,11 @@ pipeline {
      stage('build-1by1') {
          steps {
             script {
-                echo "${params.appnames}" | awk -F ',' '{print $1}'
+                echo "${params.appnames}" 
+                
+                str = env.appnames.split(',')
+                for (String values :str)
+                echo  "app-name --env $values"
                 sh '''
                 set +x
                
