@@ -67,11 +67,12 @@ pipeline {
                 
       def funapp(String a){
             echo a
-            def myFile = new File("test10/appnewnames")
-            def lines = myFile.readLines()
-            lines.each {line ->
-             println line
-            }
+           def myFile = new File("${workspace}/test10/appnewnames")
+ 
+def lines = myFile.readLines()
+lines.each {line ->
+ println line
+}
            
             }
 
