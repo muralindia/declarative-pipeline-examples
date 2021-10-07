@@ -80,7 +80,7 @@ pipeline {
                
                 whoami
                 echo "NAMESPACE=${params.nspace}"
-                '''
+                
                 
 
                 for i in `cat test10/appnewnames` ;  do 
