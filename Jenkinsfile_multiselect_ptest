@@ -3,9 +3,9 @@ pipeline {
    parameters {
   extendedChoice description: 'desc appnames', multiSelectDelimiter: ',', name: 'appnames', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_CHECKBOX', value: 'app1,app2,marigo-round,app4,app5,app6,app7,app8,app9,app10', visibleItemCount: 5
   
-  choice(name: 'nspace', choices: ['rose-int', 'rose-prd'], description: 'Choose one')
+  choice(name: 'nspace', choices: ['rose-demo','rose-int', 'rose-prd'], description: 'Choose one')
 
-  choice(name: 'env', choices: ['demo','int','prd'], description: 'Choose one')
+  choice(name: 'ENV_Name', choices: ['demo','int','prd'], description: 'Choose one')
 
 }
     stages {
@@ -14,6 +14,7 @@ pipeline {
                 
                 echo "Extendedchoice: ${params.appnames}"
                 echo "Choice: ${params.nspace}"
+               
             }
         }
     
@@ -36,7 +37,7 @@ pipeline {
                 
                 str = env.appnames.split(',')
                 for (String values :str)
-                sh "echo $values > test10/$values ; echo catting ; echo `cat test10/$values`-${params.env} >> test10/appnewnames "
+                sh "echo `cat test10/$values`-${params.env} >> test10/appnewnames "
                 
                 str = env.appnames.split(',')
                 for (String values :str)
@@ -57,6 +58,21 @@ pipeline {
                 }
                }
               }
+
+    stage (apply hpa change to ${params.ENV_Name} and env.ENV_Name) {
+        steps {
+            echo "looping"
+            script {
+
+                for (i in `cat test10/appnewnames`)  {
+                    echo $i
+
+                }
+            }
+    
+        }
+        }
+
     }
  }
               
