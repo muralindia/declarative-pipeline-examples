@@ -89,7 +89,8 @@ pipeline {
  
                 def lines = myFile.readLines()
                 lines.each {line ->
-                println line
+                println line 
+                echo line
                 sh "sed -i 's/.*APPLICATION_NAME.*/APPLICATION_NAME=`println line`/g' .oshit/params/alldeploy/hpa"
                 echo "hello my second change"
                 }
