@@ -71,7 +71,7 @@ pipeline {
                 napp=`cat test10/appcount`
                 echo $napp
 
-                for i in `cat test10/appcount` ; do echo $i ; done
+                for i in `cat test10/appnewnames` ; do echo $i ; done
             
                 '''
 
