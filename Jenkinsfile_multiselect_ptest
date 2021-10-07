@@ -64,7 +64,7 @@ pipeline {
             echo "Environment name : ${params.ENV_Name}"
             script {
 
-                echo NAMESPACE=${params.nspace}
+                echo "NAMESPACE=${params.nspace}"
 
                 sh '''
                 set +x
