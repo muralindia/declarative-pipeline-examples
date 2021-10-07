@@ -62,6 +62,7 @@ pipeline {
                 
       def funapp(String a){
             echo a
+            echo test100
            def myFile = new File("${workspace}/test10/appnewnames")
  
 def lines = myFile.readLines()
