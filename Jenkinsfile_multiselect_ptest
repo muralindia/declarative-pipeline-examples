@@ -81,8 +81,10 @@ pipeline {
                 whoami
                 '''
                 sh "sed -i 's/.*NAMESPACE.*/NAMESPACE=${params.nspace}/g' .oshit/params/alldeploy/hpa"
+                sh '''
+                set +x
                 cat .oshit/params/alldeploy/hpa
-                
+                '''
              
             }
     
