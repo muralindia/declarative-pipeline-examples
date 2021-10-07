@@ -64,10 +64,13 @@ pipeline {
             echo "Environment name : ${params.ENV_Name}"
             script {
 
-                for i in `cat test10/appnewnames`  {
-                    echo $i
+                sh '''
+                set +x
+                tapp=`cat test10/appnewnames` | wc -l
+                echo $tapp
+                '''
 
-                }
+                
             }
     
         }
