@@ -59,7 +59,7 @@ pipeline {
                }
               }
 
-    stage('apply hpa change to environment ${params.ENV_Name}') {
+    stage('apply hpa change to environment env.ENV_Name}') {
         steps {
             echo "Environment name : ${params.ENV_Name}"
             script {
