@@ -64,7 +64,7 @@ pipeline {
             echo "Environment name : ${params.ENV_Name}"
             script {
 
-                for (i in `cat test10/appnewnames`)  {
+                for i in `cat test10/appnewnames`  {
                     echo $i
 
                 }
