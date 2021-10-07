@@ -79,8 +79,9 @@ pipeline {
                 cat .oshit/params/alldeploy/hpa
                 whoami
 
-                for i in `cat test10/appnewnames` ;  do sed 's/.*APPLICATION_NAME.*/"$i"/' .oshit/params/alldeploy/hpa ; cp .oshit/params/alldeploy/hpa.org .oshit/params/alldeploy/hpa  ; done 
-            
+                for i in `cat test10/appnewnames` ;  do sed -i "s/.*APPLICATION_NAME.*/APPLICATION_NAME=$i/" .oshit/params/alldeploy/hpa ; done 
+                echo "changed hpa"
+                cat .oshit/params/alldeploy/hpa
                 '''
 
                 
