@@ -34,11 +34,11 @@ pipeline {
                 
                 str = env.appnames.split(',')
                 for (String values :str)
-                sh "echo $values > test10/$values ; echo catting ; ap=`cat test10/$values` ; echo '$ap'"
+                sh "echo $values > test10/$values ; echo catting ; ap=`cat test10/$values`"
                 
                 str = env.appnames.split(',')
                 for (String values :str)
-                sh "cat test10/$values" 
+                sh "echo $values >> test10/appnames ; cat test10/appnames" 
                 
                 sh '''
                 set +x
