@@ -36,7 +36,7 @@ pipeline {
                 
                 str = env.appnames.split(',')
                 for (String values :str)
-                sh "echo $values > test10/$values ; echo catting ; ap=`cat test10/$values`"
+                sh "echo $values > test10/$values ; echo catting ; echo `cat test10/$values`-${params.env} "
                 
                 str = env.appnames.split(',')
                 for (String values :str)
@@ -44,12 +44,7 @@ pipeline {
                 
                 sh '''
                 set +x
-                for i in `cat test10/appnames`
-                do 
-                echo $i-${params.env} >> test10/newappnames
-                done
-                echo "New app names"
-                cat test10/newappnames
+                echo "nothing"
                 '''
                 echo "values via function"
                 strg = env.appnames.split(',')
