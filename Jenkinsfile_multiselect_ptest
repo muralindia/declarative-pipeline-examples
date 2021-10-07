@@ -1,0 +1,78 @@
+pipeline {
+    agent any
+   parameters {
+  extendedChoice description: 'desc appnames', multiSelectDelimiter: ',', name: 'appnames', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_CHECKBOX', value: 'app1,app2,marigo-round,app4,app5,app6,app7,app8,app9,app10', visibleItemCount: 5
+  
+  choice(name: 'nspace', choices: ['rose-int', 'rose-prd'], description: 'Choose one')
+
+}
+    stages {
+        stage('Example-values') {
+            steps {
+                
+                echo "Extendedchoice: ${params.appnames}"
+                echo "Choice: ${params.nspace}"
+            }
+        }
+    
+    
+ // new lines added
+ 
+     stage('build-1by1') {
+         steps {
+            script {
+                echo "${params.appnames}" 
+                
+                sh '''
+                set +x
+                
+                rm -rf test10
+                mkdir test10
+                
+                '''
+                
+                str = env.appnames.split(',')
+                for (String values :str)
+                sh "echo $values > test10/$values"
+                echo $values
+
+                sh '''
+                set +x
+                
+                cat test10/$values
+                apnewname=`cat test10/$values`
+                
+                '''
+                
+                str = env.appnames.split(',')
+                for (String values :str)
+                sh "cat test10/$values" 
+                
+                sh '''
+                set +x
+                rm -rf test10
+                '''
+
+                strg = env.appnames.split(',')
+                for (String values :strg)
+                funapp("$values")
+                      
+                
+                applyrstuff('rstuffs', 'antk')
+                }
+               }
+              }
+    }
+ }
+              
+       def applyrstuff(String a, String b){
+                echo "hello rstuff"
+                echo a
+                echo b
+                }
+                
+      def funapp(String a){
+            echo a
+           
+            }
+
