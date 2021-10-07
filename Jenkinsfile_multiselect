@@ -69,6 +69,7 @@ def lines = myFile.readLines()
 lines.each {line ->
  println line
 }
+    echo "test101"
            
             }
 
