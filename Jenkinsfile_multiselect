@@ -4,6 +4,8 @@ pipeline {
   extendedChoice description: 'desc appnames', multiSelectDelimiter: ',', name: 'appnames', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_CHECKBOX', value: 'app1,app2,marigo-round,app4,app5,app6,app7,app8,app9,app10', visibleItemCount: 5
   
   choice(name: 'nspace', choices: ['rose-int', 'rose-prd'], description: 'Choose one')
+  
+  choice(name: 'ENV_Name', choices: ['demo','int','prd'], description: 'Choose one')
 
 }
     stages {
@@ -35,16 +37,12 @@ pipeline {
                 
                 str = env.appnames.split(',')
                 for (String values :str)
-                sh "echo $values > test10/$values" 
+                sh "echo $values >> test10/$values ; echo `cat test10/$values`-${params.ENV_Name} >> test10/appnewnames "
                 
                 str = env.appnames.split(',')
                 for (String values :str)
                 sh "cat test10/$values" 
                 
-                sh '''
-                set +x
-                rm -rf test10
-                '''
 
                 strg = env.appnames.split(',')
                 for (String values :strg)
@@ -66,6 +64,14 @@ pipeline {
                 
       def funapp(String a){
             echo a
+            echo "test100"
+           def myFile = new File("${workspace}/test10/appnewnames")
+ 
+def lines = myFile.readLines()
+lines.each {line ->
+ println line
+}
+    echo "test101"
            
             }
 
