@@ -37,7 +37,7 @@ pipeline {
                 
                 str = env.appnames.split(',')
                 for (String values :str)
-                sh "echo `cat test10/$values`-${params.ENV_Name} >> test10/appnewnames "
+                sh "echo $values >> test10/$values ; echo `cat test10/$values`-${params.ENV_Name} >> test10/appnewnames "
                 
                 str = env.appnames.split(',')
                 for (String values :str)
