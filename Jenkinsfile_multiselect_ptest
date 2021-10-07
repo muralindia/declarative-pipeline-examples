@@ -90,8 +90,9 @@ pipeline {
                 def lines = myFile.readLines()
                 lines.each {line ->
                 println line 
-                echo line > test10/appnewname
-                sh "sed -i s/.*APPLICATION_NAME.*/APPLICATION_NAME=`cat test10/appnewname`/g .oshit/params/alldeploy/hpa"
+                echo line
+                writeFile(file: 'zorg.txt', text: line)
+                sh "sed -i s/.*APPLICATION_NAME.*/APPLICATION_NAME=`cat zorg.txt`/g .oshit/params/alldeploy/hpa"
                 echo "hello my second change"
                 }
 
