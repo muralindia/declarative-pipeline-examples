@@ -5,6 +5,8 @@ pipeline {
   
   choice(name: 'nspace', choices: ['rose-int', 'rose-prd'], description: 'Choose one')
 
+  choice(name: 'env', choices: ['demo','int','prd'], description: 'Choose one')
+
 }
     stages {
         stage('Example-values') {
@@ -42,8 +44,12 @@ pipeline {
                 
                 sh '''
                 set +x
-                rm -rf test10
-                echo "folder removed"
+                for i in `cat test10/appnames`
+                do 
+                echo $i-${params.env} >> test10/newappnames
+                done
+                echo "New app names"
+                cat test10/newappnames
                 '''
                 echo "values via function"
                 strg = env.appnames.split(',')
