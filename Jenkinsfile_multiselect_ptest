@@ -80,7 +80,7 @@ pipeline {
                
                 whoami
                 '''
-                sh "sed -i "s/.*NAMESPACE.*/NAMESPACE=${params.nspace}/g" .oshit/params/alldeploy/hpa"
+                sh "sed -i 's/.*NAMESPACE.*/NAMESPACE=${params.nspace}/g' .oshit/params/alldeploy/hpa"
                 cat .oshit/params/alldeploy/hpa
                 
              /*   for i in `cat test10/appnewnames` ;  do 
