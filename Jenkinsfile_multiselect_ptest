@@ -79,17 +79,18 @@ pipeline {
                 cat .oshit/params/alldeploy/hpa.org
                
                 whoami
+                '''
                 sh "sed -i "s/.*NAMESPACE.*/NAMESPACE=${params.nspace}/g" .oshit/params/alldeploy/hpa"
                 cat .oshit/params/alldeploy/hpa
                 
-                for i in `cat test10/appnewnames` ;  do 
+             /*   for i in `cat test10/appnewnames` ;  do 
                 sed -i "s/.*APPLICATION_NAME.*/APPLICATION_NAME=$i/g" .oshit/params/alldeploy/hpa ;
                 
                 cat .oshit/params/alldeploy/hpa ;
                 done 
                 echo "changed hpa"
                 cat .oshit/params/alldeploy/hpa
-                '''
+            */
                 
             }
     
