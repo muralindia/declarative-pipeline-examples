@@ -28,6 +28,7 @@ pipeline {
                 
                 rm -rf test10
                 mkdir test10
+                echo "folder created"
                 
                 '''
                 
@@ -36,13 +37,7 @@ pipeline {
                 sh "echo $values > test10/$values"
                 echo $values
 
-                sh '''
-                set +x
                 
-                cat test10/$values
-                apnewname=`cat test10/$values`
-                
-                '''
                 
                 str = env.appnames.split(',')
                 for (String values :str)
