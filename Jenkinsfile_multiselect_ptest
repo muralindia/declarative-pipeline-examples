@@ -72,6 +72,7 @@ pipeline {
                 echo $napp
 
                 ls -l .oshit/params/alldeploy/hpa
+                cp .oshit/params/alldeploy/hpa .oshit/params/alldeploy/hpa.org
                 whoami
 
              //   for i in `cat test10/appnewnames`  do echo $i ; done 
