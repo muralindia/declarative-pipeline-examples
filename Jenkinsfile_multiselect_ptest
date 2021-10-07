@@ -66,8 +66,9 @@ pipeline {
 
                 sh '''
                 set +x
-                tapp=`cat test10/appnewnames` | wc -l
-                echo $tapp
+                echo "number of apps"
+                echo "`cat test10/appnewnames` | wc -l"
+            
                 '''
 
                 
