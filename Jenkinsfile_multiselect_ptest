@@ -85,7 +85,20 @@ pipeline {
                 set +x
                 cat .oshit/params/alldeploy/hpa
                 '''
-             
+                def myFile = new File("${workspace}/test10/appnewnames")
+ 
+                def lines = myFile.readLines()
+                lines.each {line ->
+                println line
+                sh "sed -i 's/.*APPLICATION_NAME.*/APPLICATION_NAME=line/g' .oshit/params/alldeploy/hpa"
+                echo "hello my second change"
+                }
+
+                sh '''
+                set +x
+                cat .oshit/params/alldeploy/hpa
+                '''
+
             }
     
         }
