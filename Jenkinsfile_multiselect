@@ -45,12 +45,7 @@ pipeline {
                 set +x
                 rm -rf test10
                 '''
-                def myFile = new File("test10/appnewnames")
- 
-            def lines = myFile.readLines()
-            lines.each {line ->
-             println line
-            }
+                
 
                 strg = env.appnames.split(',')
                 for (String values :strg)
@@ -72,6 +67,11 @@ pipeline {
                 
       def funapp(String a){
             echo a
+            def myFile = new File("test10/appnewnames")
+            def lines = myFile.readLines()
+            lines.each {line ->
+             println line
+            }
            
             }
 
