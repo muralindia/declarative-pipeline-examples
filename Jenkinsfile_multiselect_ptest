@@ -67,7 +67,9 @@ pipeline {
                 sh '''
                 set +x
                 echo "number of apps"
-                cat test10/appnewnames | wc -l
+                cat test10/appnewnames | wc -l > test10/appcount
+                napp=`cat test10/appcount`
+                echo $napp
             
                 '''
 
