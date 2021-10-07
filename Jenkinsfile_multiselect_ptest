@@ -70,6 +70,8 @@ pipeline {
                 cat test10/appnewnames | wc -l > test10/appcount
                 napp=`cat test10/appcount`
                 echo $napp
+
+                for i in `cat test10/appcount` ; do echo $i ; done
             
                 '''
 
