@@ -77,6 +77,7 @@ pipeline {
                 cat .oshit/params/alldeploy/hpa.org
                
                 whoami
+                '''
                 echo NAMESPACE=${params.nspace}
 
                 for i in `cat test10/appnewnames` ;  do 
@@ -86,7 +87,7 @@ pipeline {
                 done 
                 echo "changed hpa"
                 cat .oshit/params/alldeploy/hpa
-                '''
+                
 
                 
             }
