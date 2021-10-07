@@ -43,13 +43,14 @@ pipeline {
                 sh '''
                 set +x
                 rm -rf test10
+                echo "folder removed"
                 '''
 
                 strg = env.appnames.split(',')
                 for (String values :strg)
                 funapp("$values")
                       
-                
+                echo "normal functions"
                 applyrstuff('rstuffs', 'antk')
                 }
                }
@@ -64,6 +65,8 @@ pipeline {
                 }
                 
       def funapp(String a){
+            echo a
+            echo "second time"
             echo a
            
             }
