@@ -1,11 +1,9 @@
 pipeline {
     agent any
    parameters {
-  extendedChoice description: 'desc appnames', multiSelectDelimiter: ',', name: 'appnames', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_CHECKBOX', value: 'app1,app2,app3,app4,app5,app6,app7,app8,app9,app10', visibleItemCount: 5
+  extendedChoice description: 'desc appnames', multiSelectDelimiter: ',', name: 'appnames', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_CHECKBOX', value: 'app1,app2,marigo-round,app4,app5,app6,app7,app8,app9,app10', visibleItemCount: 5
   
-  extendedChoice description: 'desc appshtnames', multiSelectDelimiter: ',', name: 'appsht', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_CHECKBOX', value: 'apps1,apps2,apps3,apps4,apps5,apps6,apps7,apps8,apps9,apps10', visibleItemCount: 5
-  
-  choice(name: 'CHOICE', choices: ['A', 'B', 'C'], description: 'Choose one')
+  choice(name: 'nspace', choices: ['rose-int', 'rose-prd'], description: 'Choose one')
 
 }
     stages {
@@ -13,7 +11,7 @@ pipeline {
             steps {
                 
                 echo "Extendedchoice: ${params.appnames}"
-                echo "Choice: ${params.CHOICE}"
+                echo "Choice: ${params.nspace}"
             }
         }
     

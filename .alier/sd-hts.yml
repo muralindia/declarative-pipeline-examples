@@ -1,0 +1,6 @@
+open29-ctr-cts:
+- object: h_aply
+  content:
+  - name: "ap hp"
+    template: "{{ in_dr }}/../../.opn/tm/adp/h_u.yml"
+    params: "{{ in_dr }}/../../.opn/pms/adp/ha"
