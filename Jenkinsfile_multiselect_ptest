@@ -67,7 +67,7 @@ pipeline {
                 sh '''
                 set +x
                 echo "number of apps"
-                echo "`cat test10/appnewnames` | wc -l"
+                cat test10/appnewnames | wc -l
             
                 '''
 
