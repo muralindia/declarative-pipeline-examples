@@ -79,7 +79,7 @@ pipeline {
                 cat .oshit/params/alldeploy/hpa.org
                
                 whoami
-                echo "NAMESPACE=${params.nspace}"
+                
                 
                 
 
