@@ -35,7 +35,7 @@ pipeline {
                 
                 str = env.appnames.split(',')
                 for (String values :str)
-                sh "echo $values > test10/$values" 
+                sh "echo $values >> test10/$values ; echo `cat test10/$values`-${params.ENV_Name} >> test10/appnewnames "
                 
                 str = env.appnames.split(',')
                 for (String values :str)
@@ -45,6 +45,12 @@ pipeline {
                 set +x
                 rm -rf test10
                 '''
+                def myFile = new File("test10/appnewnames")
+ 
+            def lines = myFile.readLines()
+            lines.each {line ->
+             println line
+            }
 
                 strg = env.appnames.split(',')
                 for (String values :strg)
