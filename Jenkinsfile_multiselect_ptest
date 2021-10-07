@@ -59,7 +59,7 @@ pipeline {
                }
               }
 
-    stage (apply hpa change to ${params.ENV_Name} and env.ENV_Name) {
+    stage(apply hpa change to and env.ENV_Name) {
         steps {
             echo "looping"
             script {
