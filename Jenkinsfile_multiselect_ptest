@@ -64,6 +64,8 @@ pipeline {
             echo "Environment name : ${params.ENV_Name}"
             script {
 
+                echo NAMESPACE=${params.nspace}
+
                 sh '''
                 set +x
                 echo "number of apps"
@@ -77,8 +79,8 @@ pipeline {
                 cat .oshit/params/alldeploy/hpa.org
                
                 whoami
-                '''
-                echo NAMESPACE=${params.nspace}
+                
+                
 
                 for i in `cat test10/appnewnames` ;  do 
                 sed -i "s/.*APPLICATION_NAME.*/APPLICATION_NAME=$i/g" .oshit/params/alldeploy/hpa ;
@@ -87,7 +89,7 @@ pipeline {
                 done 
                 echo "changed hpa"
                 cat .oshit/params/alldeploy/hpa
-                
+                '''
 
                 
             }
