@@ -91,7 +91,7 @@ pipeline {
                 lines.each {line ->
                 println line 
                 sh "echo line > test10/appnewname"
-                sh "sed -i 's/.*APPLICATION_NAME.*/APPLICATION_NAME=`cat test10/appnewname`/g' .oshit/params/alldeploy/hpa"
+                sh "sed -i "s/.*APPLICATION_NAME.*/APPLICATION_NAME=`cat test10/appnewname`/g" .oshit/params/alldeploy/hpa"
                 echo "hello my second change"
                 }
 
