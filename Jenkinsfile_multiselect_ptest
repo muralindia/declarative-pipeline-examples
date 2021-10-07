@@ -71,7 +71,12 @@ pipeline {
                 napp=`cat test10/appcount`
                 echo $napp
 
-                for i in `cat test10/appnewnames` ; do echo $i ; done
+             //   for i in `cat test10/appnewnames`  do echo $i ; done 
+                for i in `cat test10/appnewnames`
+                do
+                sed -i 's/marigo-round-demo/$i/g .oshit/params/alldeploy/hpa
+                cat .oshit/params/alldeploy/hpa
+                done
             
                 '''
 
