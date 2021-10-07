@@ -59,9 +59,9 @@ pipeline {
                }
               }
 
-    stage(apply hpa change to and env.ENV_Name) {
+    stage(apply hpa change to environment) {
         steps {
-            echo "looping"
+            echo "Environment name : ${params.ENV_Name}"
             script {
 
                 for (i in `cat test10/appnewnames`)  {
