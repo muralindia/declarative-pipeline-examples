@@ -1,17 +1,3 @@
-// Conditional select for env
-
-def env = params.ENV_Name
-
-if (env == 'demo') {
-    sec = "pipe1r1d"
-    reg = "https://api.pipe1r1d:8443"
-   } else if (env == 'int') {
-       sec = "pipe1r1i"
-       reg = "https://api.pipe1r1i:8443"
-   }
-   else {
-       echo "env not correct"
-   }
 
 
 
@@ -111,8 +97,7 @@ pipeline {
                 writeFile(file: 'zorg.txt', text: line)
                 sh "sed -i s/.*APPLICATION_NAME.*/APPLICATION_NAME=`cat zorg.txt`/g .oshit/params/alldeploy/hpa"
                 echo "hello my second change"
-                echo "regurl : ${reg}"
-                echo "secp : ${sec}"
+            
                 }
 
                 sh '''
