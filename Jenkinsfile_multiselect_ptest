@@ -118,9 +118,9 @@ pipeline {
 
                 echo data
 
-                if (txt1 == 'app2-${params.ENV_Name}'){
+                if (data == 'app2-${params.ENV_Name}'){
                     path1 = "myownpath"
-                } else if (txt1 == 'app1-${params.ENV_Name}'){
+                } else if (data == 'app1-${params.ENV_Name}'){
                     path1 = "myanotherpath"
                 } else {
                     echo "Its a different path"
