@@ -116,7 +116,7 @@ pipeline {
 
                 echo "${data}"
 
-                txt1 = data
+                echo data
 
                 if (txt1 == 'app2-${params.ENV_Name}'){
                     path1 = "myownpath"
