@@ -115,7 +115,7 @@ pipeline {
                 echo "app2-${params.ENV_Name}"
 
                 
-                txt1 = data.getText('UTF-8')
+                txt1 = data.getText()
 
                 if (txt1 == 'app2-${params.ENV_Name}'){
                     path1 = "myownpath"
