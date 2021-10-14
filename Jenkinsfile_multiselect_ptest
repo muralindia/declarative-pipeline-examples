@@ -112,6 +112,7 @@ pipeline {
 
                 def data = readFile(file: 'zorg.txt')
                 println(data)
+                echo "app2-${params.ENV_Name}"
 
                 if (data == 'app2-${params.ENV_Name}'){
                     path1 = "myownpath"
