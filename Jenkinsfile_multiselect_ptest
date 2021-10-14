@@ -110,7 +110,7 @@ pipeline {
                 sh "sed -i s/.*APPLICATION_NAME.*/APPLICATION_NAME=`cat zorg.txt`/g .oshit/params/alldeploy/hpa"
                 echo "hello my second change"
 
-                sh " cat zorg.txt | awk -F "-" {print $1}  > test10/appside.txt ; echo `cat test10/appside.txt`-${params.nspace} > test10/appsidename.txt ; cat test10/appsidename.txt"
+                sh " cat zorg.txt | awk -F- {print $1}  > test10/appside.txt ; echo `cat test10/appside.txt`-${params.nspace} > test10/appsidename.txt ; cat test10/appsidename.txt"
 
                 def data = readFile(file: 'zorg.txt')
                 println(data)
