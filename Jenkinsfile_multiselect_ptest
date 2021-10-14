@@ -114,8 +114,8 @@ pipeline {
                 println(data)
                 echo "app2-${params.ENV_Name}"
 
-                File fh1 = new File('zorg.txt')
-                txt1 = fh1.getText('UTF-8')
+                
+                txt1 = data.getText('UTF-8')
 
                 if (txt1 == 'app2-${params.ENV_Name}'){
                     path1 = "myownpath"
