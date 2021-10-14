@@ -120,7 +120,7 @@ pipeline {
                     echo "Its a different path"
                 }
             
-                echo "app path : ${path1}
+                echo "app path : ${path1}"
 
                 echo "regurl : ${reg}"
                 echo "secp : ${sec}"
