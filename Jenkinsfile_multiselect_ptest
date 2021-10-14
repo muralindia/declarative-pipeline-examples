@@ -110,6 +110,18 @@ pipeline {
                 sh "sed -i s/.*APPLICATION_NAME.*/APPLICATION_NAME=`cat zorg.txt`/g .oshit/params/alldeploy/hpa"
                 echo "hello my second change"
 
+                def data = readFile(file: 'zorg.txt')
+
+                if (data == 'app2'){
+                    path1 = "myownpath"
+                } else if (data = 'app1'){
+                    path1 = "myanotherpath"
+                } else {
+                    echo "Its a different path"
+                }
+            
+                echo "app path : ${path1}
+
                 echo "regurl : ${reg}"
                 echo "secp : ${sec}"
             
