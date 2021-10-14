@@ -111,6 +111,7 @@ pipeline {
                 echo "hello my second change"
 
                 def data = readFile(file: 'zorg.txt')
+                println(data)
 
                 if (data == 'app2'){
                     path1 = "myownpath"
