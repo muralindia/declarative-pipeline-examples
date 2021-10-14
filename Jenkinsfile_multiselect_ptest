@@ -113,9 +113,9 @@ pipeline {
                 def data = readFile(file: 'zorg.txt')
                 println(data)
 
-                if (data == 'app2'){
+                if (data == 'app2.${params.ENV_Name}'){
                     path1 = "myownpath"
-                } else if (data == 'app1'){
+                } else if (data == 'app1.${params.ENV_Name}'){
                     path1 = "myanotherpath"
                 } else {
                     echo "Its a different path"
