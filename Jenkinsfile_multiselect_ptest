@@ -111,7 +111,7 @@ pipeline {
                 echo "hello my second change"
                 sh '''
                 set +x
-                sh "awk -v FS=- '{print $1}' zorg.txt"
+                sh "awk -F- '{print $1}' ./zorg.txt"
                 ''' 
                 sh "echo `cat test10/appside.txt`-${params.nspace} > test10/appsidename.txt ; cat test10/appsidename.txt"
 
