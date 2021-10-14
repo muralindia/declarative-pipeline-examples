@@ -114,7 +114,7 @@ pipeline {
 
                 if (data == 'app2'){
                     path1 = "myownpath"
-                } else if (data = 'app1'){
+                } else if (data == 'app1'){
                     path1 = "myanotherpath"
                 } else {
                     echo "Its a different path"
