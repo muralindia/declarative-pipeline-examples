@@ -121,10 +121,10 @@ pipeline {
                 echo data
 
                 if (data == "app2-${params.ENV_Name}"){
-                    path1 = "myownpath"
+                    path1 = "/myownpath"
                     sh "echo $path1 >> .oshit/params/alldeploy/hpa"
                 } else if (data == "app1-${params.ENV_Name}"){
-                    path1 = "myanotherpath"
+                    path1 = "/myanotherpath"
                 } else {
                     echo "Its a different path"
                 }
