@@ -109,10 +109,7 @@ pipeline {
                 writeFile(file: 'zorg.txt', text: line)
                 sh "sed -i s/.*APPLICATION_NAME.*/APPLICATION_NAME=`cat zorg.txt`/g .oshit/params/alldeploy/hpa"
                 echo "hello my second change"
-                sh '''
-                set +x
-                sh "awk -F- '{print $1}' ./zorg.txt"
-                ''' 
+                
                 sh "echo `cat test10/appside.txt`-${params.nspace} > test10/appsidename.txt ; cat test10/appsidename.txt"
 
                 def data = readFile(file: 'zorg.txt')
