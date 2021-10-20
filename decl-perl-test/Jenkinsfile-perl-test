@@ -33,7 +33,7 @@ pipeline
 		      open my $file_in, '<', 'app-artifact-input.txt' or die \$!;
 while(<$file_in>){
         my $count=$count++;
-        my @columns = split /\ /, $_;
+        my @columns = split / /, $_;
 
         my $data1 = "$columns[0]";
         chomp $data1;
