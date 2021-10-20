@@ -23,9 +23,6 @@ pipeline
             }
 
 		
-            dir ("decl-perl-test/") {
-    sh "/usr/bin/perl -w declperltest.pl"
-}
 
 
 
@@ -36,24 +33,9 @@ pipeline
 	{
 		steps {
 		script {
-		sh """#!/usr/bin/perl
-
-		      use strict;
-		      use warnings;
-
-
-		      open my $file_in, '<', 'app-artifact-input.txt' or die \$!;
-while(<$file_in>){
-        my @columns = split / /, $_;
-
-        my $data1 = "$columns[0]";
-        chomp $data1;
-        my $data2 = "$columns[1]";
-        chomp $data2;
-
-my $cmd1=system ("echo $data1 and $data2");
+            dir ("decl-perl-test/") {
+    sh "/usr/bin/perl -w declperltest.pl"
 }
-close $file_in;"""
     } 
 
     }
