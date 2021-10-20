@@ -30,7 +30,7 @@ pipeline
 		      use strict;
 		      use warnings;
 
-		      open my $file_in, '<', 'app-artifact-input.txt' or die $!;
+		      open my $file_in, '<', 'app-artifact-input.txt' or die \$!;
 while(<$file_in>){
         my $count=$count++;
         my @columns = split /\ /, $_;
