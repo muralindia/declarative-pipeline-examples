@@ -18,8 +18,15 @@ pipeline
 
                       print "Hello, World!\n";"""
 
-
             }
+
+		
+            dir ("decl-perl-test/") {
+    sh "./declperltest.pl"
+}
+
+
+
             }
         }
 
