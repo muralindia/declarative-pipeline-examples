@@ -18,11 +18,13 @@ pipeline
 
                       print "Hello, World!\n";"""
 
+		      sh "pwd"
+
             }
 
 		
             dir ("decl-perl-test/") {
-    sh "./declperltest.pl"
+    sh "/usr/bin/perl -w declperltest.pl"
 }
 
 
