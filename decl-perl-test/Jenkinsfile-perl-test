@@ -17,6 +17,8 @@ pipeline
                       use warnings;
 
                       print "Hello, World!\n";"""
+
+
             }
             }
         }
@@ -31,7 +33,7 @@ pipeline
 		      use warnings;
 
 
-		      open my $file_in, '<', 'decl-perl-test/app-artifact-input.txt' or die \$!;
+		      open my $file_in, '<', 'app-artifact-input.txt' or die \$!;
 while(<$file_in>){
         my @columns = split / /, $_;
 
