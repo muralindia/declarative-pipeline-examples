@@ -19,6 +19,19 @@ pipeline
                       print "Hello, World!\n";"""
 
 		      sh "pwd"
+	/// Additional file upload test for shell while loop test
+	
+	// Get file using input step, will put it in build directory
+print "=================Please upload your property file here ====================="
+def inputFile = input message: 'Upload file', parameters: [file(name: 'app-version.txt')]
+// Read contents and write to workspace
+writeFile(file: 'app-version.txt', text: inputFile.readToString())
+// Stash it for use in a different part of the pipeline
+stash name: 'data', includes: 'app-version.txt'
+		      
+        echo "Verify uploaded file"
+	sh "ls -l"
+		      
 
             }
 
